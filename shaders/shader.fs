@@ -9,6 +9,8 @@ in vec2 TexCoords;
 
 // uniforms
 uniform sampler2D ourTexture;
+uniform sampler2D specularTexture;
+
 uniform vec3 viewPos;
 
 struct DirectionalLight
@@ -34,7 +36,7 @@ void main()
 
     Material mat;
     mat.diffuse = vec3(texture(ourTexture, TexCoords));
-    mat.specular = vec3(1, 1, 1);
+    mat.specular = vec3(texture(specularTexture, TexCoords));
     mat.shininess = 64;
 
     // diffuse angle
