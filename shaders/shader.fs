@@ -43,8 +43,8 @@ void main()
     float NdL = max(dot(Normal, -dl.direction), 0);
 
     // variables to calculate specular lighting
-    vec3 viewDir = normalize(FragPos - viewPos);
-    vec3 reflectDir = reflect(Normal, -dl.direction);
+    vec3 viewDir = normalize(viewPos - FragPos);
+    vec3 reflectDir = reflect(dl.direction, Normal);
     float VdR = pow(max(dot(viewDir, reflectDir), 0), mat.shininess); 
 
     // specular light
